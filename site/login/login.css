@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px 35px;
+  width: 420px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  color: #333;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.login-container label {
+  display: block;
+  text-align: left;
+  margin-top: 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #2c3e50;
+  font-size: 1rem;
+  transition: 0.3s ease;
+}
+
+.login-container input:focus {
+  outline: none;
+  border: 2px solid #76d7c4;
+  background: #fff;
+}
+
+.link-container {
+  text-align: right;
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.link-container a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link-container a:hover {
+  text-decoration: underline;
+  color: #34495e;
+}
+
+.login-container button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  background: linear-gradient(to right, #76d7c4, #f7b2c1);
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2c3e50;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.login-container button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}

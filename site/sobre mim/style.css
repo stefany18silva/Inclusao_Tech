@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    background: linear-gradient(135deg, #cce3ff, #ffd6f6, #fffcbf);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: #000;
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .sobre-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    max-width: 700px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .foto-perfil {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  
+  .sobre-container h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+  }
+  
+  .sobre-container p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .sobre-container h2 {
+    margin-top: 30px;
+    font-size: 1.5rem;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .social-links a {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  
+  .social-links a:hover {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.05);
+  }
+
+  canvas {
+    max-width: 500px;
+    margin: 40px auto;
+  }
+
+  canvas {
+    max-width: 800px;
+    width: 100%;
+    height: 600px;
+    margin: 40px auto;
+  }
+  
+  

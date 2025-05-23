@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto de Vida - Cadastro</title>
+  <link rel="stylesheet" href="cadastro.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-user-circle"></i> Cadastro - Projeto de Vida</h1>
+    
+    <form action="processa_cadastro.php" method="POST" enctype="multipart/form-data">
+      
+      <fieldset>
+        <legend><i class="fas fa-id-card"></i> Informações Pessoais</legend>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required />
+
+        <label for="data_nascimento">Data de Nascimento:</label>
+        <input type="date" id="data_nascimento" name="data_nascimento" required />
+
+        <label for="foto_perfil">Foto de Perfil:</label>
+        <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*" />
+
+        <label for="sobre_mim">Sobre Mim:</label>
+        <textarea id="sobre_mim" name="sobre_mim" rows="4"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend><i class="fas fa-brain"></i> Autoconhecimento (Aprender a Ser)</legend>
+
+        <label for="quem_sou_eu">Quem Sou Eu?</label>
+        <textarea id="quem_sou_eu" name="quem_sou_eu" rows="4" placeholder="Fale sobre você..."></textarea>
+
+        <label for="lembrancas">Minhas Lembranças:</label>
+        <textarea id="lembrancas" name="lembrancas" rows="3"></textarea>
+
+        <label for="pontos_fortes">Pontos Fortes:</label>
+        <input type="text" id="pontos_fortes" name="pontos_fortes" />
+
+        <label for="pontos_fracos">Pontos Fracos:</label>
+        <input type="text" id="pontos_fracos" name="pontos_fracos" />
+
+        <label for="valores">Meus Valores:</label>
+        <input type="text" id="valores" name="valores" placeholder="Ex: Respeito, Honestidade" />
+
+        <label for="aptidoes">Minhas Principais Aptidões:</label>
+        <input type="text" id="aptidoes" name="aptidoes" placeholder="Ex: Comunicação, Liderança" />
+
+        <label for="relacionamentos">Meus Relacionamentos (Família, Amigos...):</label>
+        <textarea id="relacionamentos" name="relacionamentos" rows="3"></textarea>
+
+        <label for="dia_a_dia">Meu Dia a Dia:</label>
+        <textarea id="dia_a_dia" name="dia_a_dia" rows="3" placeholder="Rotina, lazer, estudos..."></textarea>
+
+        <label for="vida_escolar">Minha Vida Escolar:</label>
+        <textarea id="vida_escolar" name="vida_escolar" rows="3"></textarea>
+
+        <label for="visao_sobre_mim">Minha Visão Sobre Mim:</label>
+        <textarea id="visao_sobre_mim" name="visao_sobre_mim" rows="3"></textarea>
+
+        <label for="visao_dos_outros">A Visão das Pessoas Sobre Mim:</label>
+        <textarea id="visao_dos_outros" name="visao_dos_outros" rows="3"></textarea>
+      </fieldset>
+
+      <button type="submit"><i class="fas fa-paper-plane"></i> Cadastrar</button>
+    </form>
+  </div>
+</body>
+</html>

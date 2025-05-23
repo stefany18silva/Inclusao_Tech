@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz de Personalidade com Gráfico</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Quiz de Personalidade</h2>
+    <form id="quizForm">
+      <!-- Extroversão -->
+      <label>1. Você gosta de estar rodeado(a) de pessoas?</label>
+      <input type="radio" name="extroversao" value="10" required> Sim
+      <input type="radio" name="extroversao" value="5"> Às vezes
+      <input type="radio" name="extroversao" value="1"> Não
+
+      <label>2. Você costuma liderar grupos?</label>
+      <input type="radio" name="lideranca" value="10" required> Sim
+      <input type="radio" name="lideranca" value="5"> Depende
+      <input type="radio" name="lideranca" value="1"> Não
+
+      <!-- Estabilidade emocional -->
+      <label>3. Em situações de pressão, você se mantém calmo(a)?</label>
+      <input type="radio" name="calma" value="10" required> Sim
+      <input type="radio" name="calma" value="5"> Às vezes
+      <input type="radio" name="calma" value="1"> Não
+
+      <label>4. Você lida bem com críticas?</label>
+      <input type="radio" name="critica" value="10" required> Sim
+      <input type="radio" name="critica" value="5"> Depende
+      <input type="radio" name="critica" value="1"> Não
+
+      <!-- Abertura a novas experiências -->
+      <label>5. Você gosta de viajar para lugares desconhecidos?</label>
+      <input type="radio" name="viagens" value="10" required> Sim
+      <input type="radio" name="viagens" value="5"> Às vezes
+      <input type="radio" name="viagens" value="1"> Não
+
+      <label>6. Você gosta de aprender coisas novas?</label>
+      <input type="radio" name="curioso" value="10" required> Sim
+      <input type="radio" name="curioso" value="5"> Às vezes
+      <input type="radio" name="curioso" value="1"> Não
+
+      <!-- Amabilidade -->
+      <label>7. Você costuma ajudar os outros?</label>
+      <input type="radio" name="ajuda" value="10" required> Sim
+      <input type="radio" name="ajuda" value="5"> Às vezes
+      <input type="radio" name="ajuda" value="1"> Não
+
+      <label>8. Você se considera compreensivo(a)?</label>
+      <input type="radio" name="compreensivo" value="10" required> Sim
+      <input type="radio" name="compreensivo" value="5"> Mais ou menos
+      <input type="radio" name="compreensivo" value="1"> Não
+
+      <!-- Consciência / responsabilidade -->
+      <label>9. Você é pontual?</label>
+      <input type="radio" name="pontual" value="10" required> Sim
+      <input type="radio" name="pontual" value="5"> Às vezes
+      <input type="radio" name="pontual" value="1"> Não
+
+      <label>10. Você cumpre o que promete?</label>
+      <input type="radio" name="promessas" value="10" required> Sim
+      <input type="radio" name="promessas" value="5"> Às vezes
+      <input type="radio" name="promessas" value="1"> Não
+
+      <!-- Mais 6 perguntas variadas -->
+      <label>11. Você gosta de desafios intelectuais?</label>
+      <input type="radio" name="intelecto" value="10" required> Sim
+      <input type="radio" name="intelecto" value="5"> Às vezes
+      <input type="radio" name="intelecto" value="1"> Não
+
+      <label>12. Você se adapta facilmente a mudanças?</label>
+      <input type="radio" name="adaptacao" value="10" required> Sim
+      <input type="radio" name="adaptacao" value="5"> Mais ou menos
+      <input type="radio" name="adaptacao" value="1"> Não
+
+      <label>13. Você evita conflitos?</label>
+      <input type="radio" name="conflito" value="10" required> Sim
+      <input type="radio" name="conflito" value="5"> Às vezes
+      <input type="radio" name="conflito" value="1"> Não
+
+      <label>14. Você costuma planejar suas ações?</label>
+      <input type="radio" name="planejamento" value="10" required> Sim
+      <input type="radio" name="planejamento" value="5"> Às vezes
+      <input type="radio" name="planejamento" value="1"> Não
+
+      <label>15. Você é uma pessoa curiosa?</label>
+      <input type="radio" name="curiosidade" value="10" required> Sim
+      <input type="radio" name="curiosidade" value="5"> Às vezes
+      <input type="radio" name="curiosidade" value="1"> Não
+
+      <label>16. Você se considera resiliente?</label>
+      <input type="radio" name="resiliencia" value="10" required> Sim
+      <input type="radio" name="resiliencia" value="5"> Às vezes
+      <input type="radio" name="resiliencia" value="1"> Não
+
+      <button type="submit">Ver Resultado</button>
+    </form>
+
+    <div class="grafico-container">
+      <canvas id="graficoRadar"></canvas>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("quizForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const get = name => parseInt(form[name].value);
+
+      const perfil = {
+        Extroversão: (get("extroversao") + get("lideranca")) / 2,
+        Estabilidade: (get("calma") + get("critica") + get("resiliencia")) / 3,
+        Abertura: (get("viagens") + get("curioso") + get("intelecto") + get("curiosidade")) / 4,
+        Amabilidade: (get("ajuda") + get("compreensivo") + get("conflito")) / 3,
+        Consciência: (get("pontual") + get("promessas") + get("planejamento") + get("adaptacao")) / 4
+      };
+
+      const labels = Object.keys(perfil);
+      const dados = Object.values(perfil);
+
+      const ctx = document.getElementById("graficoRadar").getContext("2d");
+      if (window.radarChart) window.radarChart.destroy();
+
+      window.radarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: "Seu Perfil",
+            data: dados,
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
+            borderColor: "#fff",
+            pointBackgroundColor: "#fff"
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            r: {
+              suggestedMin: 0,
+              suggestedMax: 10,
+              grid: { color: "rgba(255, 255, 255, 0.2)" },
+              pointLabels: { color: "#fff", font: { size: 14 } },
+              angleLines: { color: "rgba(255, 255, 255, 0.2)" },
+              ticks: { backdropColor: "transparent", color: "#fff" }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: { color: "#fff" }
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

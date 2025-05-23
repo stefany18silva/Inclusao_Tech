@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Sobre Mim</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #000;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .sobre-container {
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      color: #000;
+    }
+
+    .foto-perfil {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    h1, h2 {
+      color: #000;
+    }
+
+    p {
+      color: #222;
+      margin: 15px 0;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .glass-btn {
+      padding: 12px 20px;
+      border-radius: 25px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .glass-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      color: #000;
+    }
+
+    canvas {
+      display: block;
+      margin: 40px auto;
+      max-width: 100%;
+      width: 800px;
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sobre-container">
+    <img src="silva.png" alt="Foto de Perfil" class="foto-perfil">
+    
+    <h1>Sobre Mim</h1>
+    <p>Olá! Meu nome é <strong>Stefany Silva</strong>, sou apaixonada por <strong>Pediatria</strong> e tudo que envolve o cuidado com as crianças. Estou em constante aprendizado para transformar o futuro através da medicina infantil.</p>
+    <p>Valorizo a empatia, a escuta ativa e a inclusão — especialmente em ambientes escolares e sociais.</p>
+
+    <h2>Conecte-se comigo:</h2>
+    <div class="social-links">
+      <a href="https://www.instagram.com/seuusuario" target="_blank" class="glass-btn">Instagram</a>
+      <a href="https://www.linkedin.com/in/seuusuario" target="_blank" class="glass-btn">LinkedIn</a>
+      <a href="https://www.facebook.com/seuusuario" target="_blank" class="glass-btn">Facebook</a>
+      <a href="mailto:caixapostal@exemplo.com" target="_blank" class="glass-btn">📬 Caixa Postal</a>
+    </div>
+
+    <h2>Meu Perfil de Personalidade</h2>
+    <canvas id="graficoRadar" width="800" height="600"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById("graficoRadar").getContext("2d");
+
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ["Extroversão", "Estabilidade", "Abertura", "Amabilidade", "Consciência"],
+        datasets: [{
+          label: "Resultado do Quiz",
+          data: [7, 9, 8, 10, 6],
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255, 99, 132, 1)",
+          pointBackgroundColor: "rgba(255, 99, 132, 1)"
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          r: {
+            suggestedMin: 0,
+            suggestedMax: 10,
+            ticks: {
+              stepSize: 2,
+              backdropColor: "transparent"
+            },
+            pointLabels: {
+              font: {
+                size: 14
+              },
+              color: "#000"
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: true,
+            labels: {
+              color: "#000"
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+

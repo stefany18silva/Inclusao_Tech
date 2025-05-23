@@ -1,0 +1,72 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #ffc3a0, #fcb69f, #fbc2eb, #a6c1ee);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    padding: 40px 20px;
+    color: #333;
+  }
+  
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px 40px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+  }
+  
+  form label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #161515;
+  }
+  
+  form input[type="radio"] {
+    margin: 8px 10px 8px 0;
+  }
+  
+  button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #6b5454;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .grafico-container {
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
